@@ -1,0 +1,323 @@
+{
+  "papers": [
+    {
+    "id": "M-356",
+    "material": "Bond Paper 120gsm",
+    "gsm": "120",
+    "supplier": "Professional Print Supplies",
+    "cost": 0.22,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-632",
+    "material": "Bond Paper 100gsm",
+    "gsm": "100",
+    "supplier": "Professional Print Supplies",
+    "cost": 0.18,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-879",
+    "material": "Bond Paper 80gsm",
+    "gsm": "80",
+    "supplier": "Professional Print Supplies",
+    "cost": 0.16,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-644",
+    "material": "Textured Paper 250gsm",
+    "gsm": "250",
+    "supplier": "Quality Paper Co.",
+    "cost": 0.52,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-986",
+    "material": "Textured Paper 200gsm",
+    "gsm": "200",
+    "supplier": "Quality Paper Co.",
+    "cost": 0.42,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-262",
+    "material": "Textured Paper 150gsm",
+    "gsm": "150",
+    "supplier": "Quality Paper Co.",
+    "cost": 0.35,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-105",
+    "material": "Specialty Paper 300gsm",
+    "gsm": "300",
+    "supplier": "Elite Print Materials",
+    "cost": 0.68,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-542",
+    "material": "Specialty Paper 250gsm",
+    "gsm": "250",
+    "supplier": "Elite Print Materials",
+    "cost": 0.55,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-596",
+    "material": "Specialty Paper 200gsm",
+    "gsm": "200",
+    "supplier": "Elite Print Materials",
+    "cost": 0.45,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-228",
+    "material": "Recycled Paper 150gsm",
+    "gsm": "150",
+    "supplier": "Global Paper Solutions",
+    "cost": 0.28,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-913",
+    "material": "Recycled Paper 120gsm",
+    "gsm": "120",
+    "supplier": "Global Paper Solutions",
+    "cost": 0.22,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-535",
+    "material": "Recycled Paper 100gsm",
+    "gsm": "100",
+    "supplier": "Global Paper Solutions",
+    "cost": 0.18,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-183",
+    "material": "Cardboard 500gsm",
+    "gsm": "500",
+    "supplier": "Premium Print Supplies",
+    "cost": 1.05,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-537",
+    "material": "Cardboard 300gsm",
+    "gsm": "300",
+    "supplier": "Premium Print Supplies",
+    "cost": 0.65,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-885",
+    "material": "Cardboard 250gsm",
+    "gsm": "250",
+    "supplier": "Premium Print Supplies",
+    "cost": 0.55,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-716",
+    "material": "Uncoated Paper 160gsm",
+    "gsm": "160",
+    "supplier": "Apex Papers",
+    "cost": 0.22,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-831",
+    "material": "Uncoated Paper 120gsm",
+    "gsm": "120",
+    "supplier": "Apex Papers",
+    "cost": 0.18,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-478",
+    "material": "Uncoated Paper 100gsm",
+    "gsm": "100",
+    "supplier": "Apex Papers",
+    "cost": 0.15,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-878",
+    "material": "Uncoated Paper 80gsm",
+    "gsm": "80",
+    "supplier": "Apex Papers",
+    "cost": 0.12,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-263",
+    "material": "Coated Paper 300gsm",
+    "gsm": "300",
+    "supplier": "Paper Source LLC",
+    "cost": 0.65,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-609",
+    "material": "Coated Paper 170gsm",
+    "gsm": "170",
+    "supplier": "Paper Source LLC",
+    "cost": 0.38,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-008",
+    "material": "Coated Paper 135gsm",
+    "gsm": "135",
+    "supplier": "Paper Source LLC",
+    "cost": 0.32,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-007",
+    "material": "Coated Paper 120gsm",
+    "gsm": "120",
+    "supplier": "Paper Source LLC",
+    "cost": 0.28,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-23",
+    "status": "Active"
+  },
+  {
+    "id": "M-005",
+    "material": "Cardboard 400gsm",
+    "gsm": "400",
+    "supplier": "Premium Print Supplies",
+    "cost": 0.85,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-21",
+    "status": "Active"
+  },
+  {
+    "id": "M-004",
+    "material": "Matte Paper 250gsm",
+    "gsm": "250",
+    "supplier": "Paper Source LLC",
+    "cost": 0.42,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-21",
+    "status": "Active"
+  },
+  {
+    "id": "M-003",
+    "material": "Glossy Paper 200gsm",
+    "gsm": "200",
+    "supplier": "Paper Source LLC",
+    "cost": 0.35,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-21",
+    "status": "Active"
+  },
+  {
+    "id": "M-002",
+    "material": "Art Paper 150gsm",
+    "gsm": "150",
+    "supplier": "Apex Papers",
+    "cost": 0.18,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-21",
+    "status": "Active"
+  },
+  {
+    "id": "M-001",
+    "material": "Art Paper 300gsm",
+    "gsm": "300",
+    "supplier": "Apex Papers",
+    "cost": 0.55,
+    "unit": "per_sheet",
+    "lastUpdated": "2025-08-21",
+    "status": "Active"
+  }
+  ],
+  "quoteTemplates": [
+    {
+      "id": "QT-2025-1004-729",
+      "status": "Done",
+      "date": "2025-10-04",
+      "customerName": "Dony",
+      "clientSnapshot": {
+        "clientType": "Individual",
+        "companyName": "",
+        "contactPerson": "Dony",
+        "firstName": "Dony",
+        "lastName": "",
+        "email": "don@gmail.com",
+        "emails": "[\"don@gmail.com\"]",
+        "phone": "123455",
+        "countryCode": "+971",
+        "role": "Owner",
+        "address": "Dubai",
+        "city": "Dubai",
+        "area": "Business Bay",
+        "state": "",
+        "postalCode": "",
+        "country": "UAE",
+        "additionalInfo": ""
+      },
+      "productsSnapshot": [
+        {
+          "productName": "Business Card",
+          "quantity": 990,
+          "printing": "Offset",
+          "sides": 2,
+          "colors": { "front": "CMYK", "back": "SameAsFront" },
+          "size": { "flat": { "widthCm": 9, "heightCm": 5.5 }, "close": { "widthCm": 9, "heightCm": 5.5 } },
+          "papers": [{ "id": "P120", "name": "Coated Paper 120gsm", "gsm": 120 }],
+          "finishing": { "lamination": { "enabled": true, "side": "Front" }, "uvSpot": false }
+        }
+      ]
+    }
+  ]
+}
