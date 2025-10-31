@@ -9,9 +9,11 @@ export type LaminationSide = 'Front' | 'Back' | 'Both';
 
 export interface PaperOption {
   id: string;
-  name: string;
+  material: string;          
   gsm: number;
-  source?: string;
+  supplier?: string;
+  unit: "per_sheet" | "per_packet";
+  cost: number;           
 }
 
 export interface ColorSide {
@@ -22,6 +24,24 @@ export interface ColorSide {
 export interface SizeSpec {
   flat: { widthCm: number; heightCm: number };
   close: { widthCm: number; heightCm: number };
+}
+
+export interface ClientInfo {
+    clientType: "Company",
+    companyName: string,
+    contactPerson: string,
+    email: string,
+    emails: string[],
+    phone: string,
+    countryCode: "+971",
+    role: string,
+    address: string,
+    city: string,
+    area: string,
+    state: string,
+    postalCode: string,
+    country: string,
+    additionalInfo: string,
 }
 
 export interface Product {
@@ -136,6 +156,8 @@ export interface QuoteTemplate {
   customerName: string; // untuk tabel
   clientSnapshot: QuoteFormData['client'];
   productsSnapshot: Product[]; // minimal index 0 dibuat sesuai contoh Business Card
+  operationalSnapshot?: QuoteFormData['operational'];
+  calculationSnapshot?: QuoteFormData['calculation'];
 }
 
 // ===== UI Transient state (mode & pilihan template) =====

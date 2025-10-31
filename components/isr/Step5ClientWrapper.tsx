@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import StepIndicator from "@/components/shared/StepIndicator";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -94,7 +93,7 @@ function computeTotals(form: QuoteFormData): Totals {
   };
 }
 
-export default function Step5Page() {
+export default function Step5ClientWrapper() {
   const router = useRouter();
   const [form, setForm] = useState<QuoteFormData | null>(null);
 
@@ -119,14 +118,17 @@ export default function Step5Page() {
         totalPrice: totals.totalPrice,
       },
     };
-    setForm(next);
-    saveForm(next);
+    // Cek untuk menghindari infinite loop jika objek/angka tidak berubah
+    if (form.calculation.totalPrice !== totals.totalPrice) {
+      setForm(next);
+      saveForm(next);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [totals?.totalPrice]);
+  }, [totals?.totalPrice, form]); // Tambahkan 'form' sebagai dependensi
 
   if (!form)
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex items-center justify-center py-20">
         <p className="text-gray-500">Loading quotation...</p>
       </div>
     );
@@ -185,18 +187,17 @@ export default function Step5Page() {
       ...form,
       calculation: { ...form.calculation, marginPercentage: pct },
     });
+  
+  const handleSubmit = () => {
+    // Mengganti alert dengan console.log atau UI modal kustom
+    console.log("Quote submitted successfully (mock).");
+    // Di aplikasi nyata, di sini Anda akan memanggil API
+    // ...
+    // router.push("/isr/success");
+  };
 
   return (
-    <main className="mx-auto max-w-6xl p-6">
-      <StepIndicator active={5} />
-
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold mb-2">Quotation Summary</h1>
-        <p className="text-gray-600">
-          Review and finalize your quote before submission
-        </p>
-      </div>
-
+    <>
       {!product && (
         <Alert className="mb-6 border-amber-200 bg-amber-50">
           <AlertCircle className="h-4 w-4 text-amber-600" />
@@ -567,19 +568,19 @@ export default function Step5Page() {
       <div className="flex justify-between items-center pt-6 border-t">
         <Button
           variant="outline"
-          onClick={() => router.push("/csr/step-4")}
+          onClick={() => router.push("/isr/step-4")}
           className="border-gray-300 hover:bg-gray-100"
         >
           Previous Step
         </Button>
         <Button
-          onClick={() => alert("Quote submitted successfully (mock).")}
+          onClick={handleSubmit}
           className="bg-[#27aae1] hover:bg-[#1f8bb8] text-white px-8"
         >
           <CheckCircle className="h-4 w-4 mr-2" />
           Submit Quote
         </Button>
       </div>
-    </main>
+    </>
   );
 }

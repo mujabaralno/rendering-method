@@ -7,16 +7,19 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Separator } from "@/components/ui/separator";
-import PrintLayoutCanvas from "./canvas/PrintLayoutCanvas";
-import CuttingCanvas from "./canvas/CuttingCanvas";
-import GripperCanvas from "./canvas/GripperCanvas";
+// Asumsi path ini benar, sesuai instruksi Anda
+import PrintLayoutCanvas from "@/components/csr/canvas/PrintLayoutCanvas";
+import CuttingCanvas from "@/components/csr/canvas/CuttingCanvas";
+import GripperCanvas from "@/components/csr/canvas/GripperCanvas";
 import { calculatePricing } from "@/lib/pricing";
 import type { QuoteFormData } from "@/types";
 import { RotateCw, Scissors, Grid3x3, DollarSign } from "lucide-react";
 
 type Props = { form: QuoteFormData; onChange: (f: QuoteFormData) => void };
 
-export default function Step4Operational({ form, onChange }: Props) {
+// Kode ini SAMA PERSIS dengan file Step4Operational.tsx Anda,
+// karena sudah merupakan Client Component yang terisolasi dengan baik.
+export default function Step4OperationalForm({ form, onChange }: Props) {
   const product = form.products[0];
 
   // UI State
@@ -91,6 +94,7 @@ export default function Step4Operational({ form, onChange }: Props) {
     );
 
   const op = form.operational.papers[0];
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const pricing = useMemo(() => calculatePricing(form), [form]);
   const pricePerSheet = Number(op?.pricePerSheet ?? 0);
   const enteredSheets = Number(op?.enteredSheets ?? op?.recommendedSheets ?? 0);

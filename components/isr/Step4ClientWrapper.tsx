@@ -2,43 +2,48 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import StepIndicator from "@/components/shared/StepIndicator";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import Step4OperationalForm from "@/components/csr/Step4OperationalForm";
+import Step4OperationalForm from "@/components/isr/Step4OperationalForm"; // Import versi ISR
 import type { QuoteFormData } from "@/types";
 import { loadForm, saveForm } from "@/lib/storage";
 
-export default function Step4Page() {
+export default function Step4ClientWrapper() {
   const router = useRouter();
   const [form, setForm] = useState<QuoteFormData | null>(null);
 
+  // Membaca dari localStorage saat komponen di-mount di client
   useEffect(() => {
     const f = loadForm<QuoteFormData>();
     setForm(f ?? null);
   }, []);
 
+  // Autosave saat form berubah
   useEffect(() => {
     if (form) saveForm(form);
   }, [form]);
 
   if (!form) return <p className="p-6">Loading…</p>;
 
+  // Render bagian interaktif
   return (
-    <main className="mx-auto max-w-6xl p-6">
-      <StepIndicator active={4} />
-      <h1 className="text-2xl font-bold mb-4">Operational Details</h1>
-
+    <>
       <Card className="p-4">
         <Step4OperationalForm form={form} onChange={setForm} />
       </Card>
 
       <div className="mt-8 flex justify-between">
-        <Button variant="secondary" onClick={() => router.push("/csr/step-3")}>
+        <Button
+          variant="secondary"
+          onClick={() => router.push("/isr/step-3")} // Path diubah ke ISR
+        >
           Previous
         </Button>
-        <Button onClick={() => router.push("/csr/step-5")}>Next</Button>
+        <Button onClick={() => router.push("/isr/step-5")} // Path diubah ke ISR
+        >
+          Next
+        </Button>
       </div>
-    </main>
+    </>
   );
 }

@@ -1,0 +1,40 @@
+import type { QuoteFormData } from "@/types";
+
+export const INITIAL_FORM: QuoteFormData = {
+  client: {
+    clientType: "Company",
+    companyName: "",
+    contactPerson: "",
+    email: "",
+    emails: "[]",
+    phone: "",
+    countryCode: "+971",
+    role: "",
+    address: "",
+    city: "",
+    area: "",
+    state: "",
+    postalCode: "",
+    country: "",
+    additionalInfo: "",
+  },
+  products: [],
+  operational: {
+    papers: [],
+    finishing: [],
+    plates: null,
+    units: null,
+    impressions: null,
+  },
+  calculation: {
+    basePrice: 0,
+    marginAmount: 0,
+    marginPercentage: 15,
+    subtotal: 0,
+    finalSubtotal: 0,
+    vatAmount: 0,
+    totalPrice: 0,
+  },
+  approval: undefined,
+  salesPersonId: undefined,
+};

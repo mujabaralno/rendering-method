@@ -50,7 +50,7 @@ const INITIAL_FORM: QuoteFormData = {
   salesPersonId: undefined,
 };
 
-export default function Step1Page() {
+export default function Step1FormISR() {
   const router = useRouter();
   const [selectedMode, setSelectedMode] = useState<"new" | "existing" | null>(
     null
@@ -87,24 +87,11 @@ export default function Step1Page() {
   const handleNext = () => {
     if (!selectedMode) return;
     setIsNavigating(true);
-    router.push("/csr/step-2");
+    router.push("/isr/step-2"); // Arahkan ke rute ISR berikutnya
   };
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-      <div className="mb-8">
-        <StepIndicator active={1} />
-      </div>
-
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          Create A Quote
-        </h1>
-        <p className="text-base text-gray-600">
-          Choose how you&apos;d like to create your printing quote
-        </p>
-      </header>
-
+    <>
       <div className="grid md:grid-cols-2 gap-6 mb-8">
         {/* Card: Start New */}
         <Card
@@ -260,6 +247,6 @@ export default function Step1Page() {
           </p>
         </div>
       )}
-    </main>
+    </>
   );
 }

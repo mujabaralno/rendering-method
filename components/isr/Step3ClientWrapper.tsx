@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import StepIndicator from "@/components/shared/StepIndicator";
 import Step3ProductSpec from "@/components/csr/Step3ProductSpec";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -18,23 +17,29 @@ import { loadForm, saveForm } from "@/lib/storage";
 
 const UI_KEY = "sp_quote_ui";
 
-export default function Step3Page() {
+// Terima data yang di-fetch server sebagai props
+interface Step3ClientWrapperProps {
+  initialTemplates: QuoteTemplate[];
+  initialPapers: PaperOption[];
+}
+
+function Step3ClientWrapper({
+  initialTemplates,
+  initialPapers,
+}: Step3ClientWrapperProps) {
   const router = useRouter();
   const [form, setForm] = useState<QuoteFormData | null>(null);
-  const [papers, setPapers] = useState<PaperOption[]>([]);
-  const [templates, setTemplates] = useState<QuoteTemplate[]>([]);
+  
+  // Inisialisasi state dari props
+  const [papers, setPapers] = useState<PaperOption[]>(initialPapers);
+  const [templates, setTemplates] = useState<QuoteTemplate[]>(initialTemplates);
 
-  // Hydrate dan ambil dummy API
+  // Hydrate form dari localStorage
   useEffect(() => {
     const f = loadForm<QuoteFormData>();
     if (f) setForm(f);
-
-    fetch("/api/quotes")
-      .then((r) => r.json())
-      .then((data) => {
-        setPapers(data.papers as PaperOption[]);
-        setTemplates(data.quoteTemplates as QuoteTemplate[]);
-      });
+    
+    // Fetch API tidak diperlukan lagi di sini
   }, []);
 
   // Prefill dari template jika mode=existing dan product belum ada
@@ -52,6 +57,7 @@ export default function Step3Page() {
       (!form.products || !form.products[0]) &&
       ui.selectedExistingQuoteId
     ) {
+      // Gunakan 'templates' dari state (yang diisi oleh props)
       const t = templates.find((x) => x.id === ui.selectedExistingQuoteId);
       const first = t?.productsSnapshot?.[0];
       if (first) {
@@ -60,7 +66,7 @@ export default function Step3Page() {
         saveForm(next);
       }
     }
-  }, [form, templates]);
+  }, [form, templates]); // Dependensi 'templates' sudah benar
 
   // Autosave
   useEffect(() => {
@@ -84,16 +90,14 @@ export default function Step3Page() {
   if (!form) return <p className="p-6">Loading…</p>;
 
   const onChange = (p: Product) => {
+    if (!form) return;
     const nextProducts = [...(form.products || [])];
     nextProducts[0] = p;
     setForm({ ...form, products: nextProducts });
   };
 
   return (
-    <main className="mx-auto max-w-5xl p-6">
-      <StepIndicator active={3} />
-      <h1 className="text-2xl font-bold mb-4">Product Specifications</h1>
-
+    <>
       <Card className="p-4">
         <Step3ProductSpec
           value={product}
@@ -103,13 +107,15 @@ export default function Step3Page() {
       </Card>
 
       <div className="mt-8 flex justify-between">
-        <Button variant="secondary" onClick={() => router.push("/csr/step-2")}>
+        <Button variant="secondary" onClick={() => router.push("/isr/step-2")}>
           Previous
         </Button>
-        <Button disabled={!canNext} onClick={() => router.push("/csr/step-4")}>
+        <Button disabled={!canNext} onClick={() => router.push("/isr/step-4")}>
           Next
         </Button>
       </div>
-    </main>
+    </>
   );
 }
+
+export default Step3ClientWrapper

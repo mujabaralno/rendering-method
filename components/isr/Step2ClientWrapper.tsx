@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import StepIndicator from "@/components/shared/StepIndicator";
 import Step2ExistingQuoteTable, {
   type Step2Row,
 } from "@/components/csr/Step2ExistingQuoteTable";
@@ -71,7 +70,16 @@ const INITIAL_FORM: QuoteFormData = {
   },
 };
 
-export default function Step2Page() {
+// Terima data yang di-fetch server sebagai props
+interface Step2ClientWrapperProps {
+  initialTemplates: QuoteTemplate[];
+  initialPapers: PaperOption[];
+}
+
+export default function Step2ClientWrapper({
+  initialTemplates,
+  initialPapers,
+}: Step2ClientWrapperProps) {
   const router = useRouter();
 
   // >>> inisialisasi dari localStorage (sinkron)
@@ -80,21 +88,16 @@ export default function Step2Page() {
     () => loadForm<QuoteFormData>() ?? INITIAL_FORM
   );
 
-  const [templates, setTemplates] = useState<QuoteTemplate[]>([]);
-  const [papers, setPapers] = useState<PaperOption[]>([]);
+  // Inisialisasi state dari props yang di-pass server
+  const [templates, setTemplates] =
+    useState<QuoteTemplate[]>(initialTemplates);
+  const [papers, setPapers] = useState<PaperOption[]>(initialPapers);
   const [notice, setNotice] = useState("");
 
-  // fetch dummy API
-  useEffect(() => {
-    fetch("/api/quotes")
-      .then((res) => res.json())
-      .then((data) => {
-        setTemplates(data.quoteTemplates as QuoteTemplate[]);
-        setPapers(data.papers as PaperOption[]);
-      });
-  }, []);
+  // fetch dummy API sudah TIDAK DIPERLUKAN di sini
+  // useEffect(() => { ... fetch ... }, []);
 
-  // autosave
+  // autosave (tetap di client)
   useEffect(() => {
     saveForm(form);
   }, [form]);
@@ -137,11 +140,9 @@ export default function Step2Page() {
     );
   };
 
+  // Layout <main>, <h1>, <StepIndicator> sudah di-render di server
   return (
-    <main className="mx-auto max-w-5xl p-6">
-      <StepIndicator active={2} />
-      <h1 className="text-2xl font-bold mb-4">Step 2 - Customer Detail</h1>
-
+    <>
       {notice && (
         <Alert className="mb-6 border-green-200 bg-green-50">
           <AlertTitle>Quote template selected successfully!</AlertTitle>
@@ -166,11 +167,11 @@ export default function Step2Page() {
       )}
 
       <div className="mt-8 flex justify-between">
-        <Button variant="secondary" onClick={() => router.push("/csr/step-1")}>
+        <Button variant="secondary" onClick={() => router.push("/isr/step-1")}>
           Previous
         </Button>
-        <Button onClick={() => router.push("/csr/step-3")}>Next</Button>
+        <Button onClick={() => router.push("/isr/step-3")}>Next</Button>
       </div>
-    </main>
+    </>
   );
 }
